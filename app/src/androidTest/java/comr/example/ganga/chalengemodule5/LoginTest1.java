@@ -25,7 +25,7 @@ public class LoginTest1 {
 
     @Rule
     public ActivityTestRule<LoginActivity> activityActivityTestRule=new ActivityTestRule<LoginActivity>(LoginActivity.class);
-    private LoginActivity loginActivity=null;
+    private LoginActivity loginActivity;
 
     @Before
     public void setUp() throws Exception {
@@ -34,6 +34,34 @@ public class LoginTest1 {
 
     @Test
     public  void testActivity(){
+
+        assertNotNull(loginActivity.findViewById(R.id.tv_email));
+        assertNotNull(loginActivity.findViewById(R.id.tv_password));
+        assertNotNull(loginActivity.findViewById(R.id.btn_login));
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        onView(withId(R.id.tv_email)).perform(typeText("ghost@gmail.com")).toString();
+
+        onView(withId(R.id.tv_password)).perform(typeText(""));
+
+        onView(withId(R.id.btn_login)).perform(click());
+
+        onView(withId(R.id.tv_email)).perform(clearText());
+
+        onView(withId(R.id.tv_password)).perform(clearText());
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        onView(withId(R.id.tv_email)).perform(typeText("")).toString();
+
+        onView(withId(R.id.tv_password)).perform(typeText("ghost123"));
+
+        onView(withId(R.id.btn_login)).perform(click());
+
+        pressBack();
+    }
+
+    @Test
+    public  void testActivity2(){
 
         assertNotNull(loginActivity.findViewById(R.id.tv_email));
         assertNotNull(loginActivity.findViewById(R.id.tv_password));
@@ -51,8 +79,65 @@ public class LoginTest1 {
         pressBack();
     }
 
+    @Test
+    public  void testActivity3(){
+
+        assertNotNull(loginActivity.findViewById(R.id.tv_email));
+        assertNotNull(loginActivity.findViewById(R.id.tv_password));
+        assertNotNull(loginActivity.findViewById(R.id.btn_login));
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        onView(withId(R.id.tv_email)).perform(typeText("ganga@gmail.com")).toString();
+
+        onView(withId(R.id.tv_password)).perform(typeText("ghost123"));
+
+        onView(withId(R.id.btn_login)).perform(click());
+
+        onView(withId(R.id.tv_email)).perform(clearText());
+
+        pressBack();
+    }
+
+    @Test
+    public  void testActivity4(){
+
+        assertNotNull(loginActivity.findViewById(R.id.tv_email));
+        assertNotNull(loginActivity.findViewById(R.id.tv_password));
+        assertNotNull(loginActivity.findViewById(R.id.btn_login));
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        onView(withId(R.id.tv_email)).perform(typeText("ghost@gmail.com")).toString();
+
+        onView(withId(R.id.tv_password)).perform(typeText("jap"));
+
+        onView(withId(R.id.btn_login)).perform(click());
+
+        onView(withId(R.id.tv_email)).perform(clearText());
+
+        pressBack();
+    }
+
+    @Test
+    public  void testActivity5(){
+
+        assertNotNull(loginActivity.findViewById(R.id.tv_email));
+        assertNotNull(loginActivity.findViewById(R.id.tv_password));
+        assertNotNull(loginActivity.findViewById(R.id.btn_login));
+        ////////////////////////////////////////////////////////////////////////////////////////////
+
+        onView(withId(R.id.tv_email)).perform(typeText("ghost@gmail.com")).toString();
+
+        onView(withId(R.id.tv_password)).perform(typeText("ghost123"));
+
+        onView(withId(R.id.btn_login)).perform(click());
+
+        pressBack();
+    }
+
+
     @After
     public void tearDown() throws Exception {
         loginActivity=null;
     }
+
 }
