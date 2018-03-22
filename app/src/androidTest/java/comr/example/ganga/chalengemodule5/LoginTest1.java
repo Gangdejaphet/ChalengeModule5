@@ -40,22 +40,13 @@ public class LoginTest1 {
         assertNotNull(loginActivity.findViewById(R.id.btn_login));
         ////////////////////////////////////////////////////////////////////////////////////////////
 
-        onView(withId(R.id.tv_email)).perform(typeText("ghost@gmail.com")).toString();
-
-        onView(withId(R.id.tv_password)).perform(typeText(""));
-
-        onView(withId(R.id.btn_login)).perform(click());
-
-        onView(withId(R.id.tv_email)).perform(clearText());
-
-        onView(withId(R.id.tv_password)).perform(clearText());
-        ////////////////////////////////////////////////////////////////////////////////////////////
-
-        onView(withId(R.id.tv_email)).perform(typeText("")).toString();
+        onView(withId(R.id.tv_email)).perform(typeText("ghost")).toString();
 
         onView(withId(R.id.tv_password)).perform(typeText("ghost123"));
 
         onView(withId(R.id.btn_login)).perform(click());
+
+        onView(withId(R.id.tv_email)).perform(clearText());
 
         pressBack();
     }
@@ -64,5 +55,4 @@ public class LoginTest1 {
     public void tearDown() throws Exception {
         loginActivity=null;
     }
-
 }

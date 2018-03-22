@@ -25,19 +25,19 @@ public class LoginTest2 {
 
     @Rule
     public ActivityTestRule<LoginActivity> activityActivityTestRule=new ActivityTestRule<LoginActivity>(LoginActivity.class);
-    private LoginActivity mainActivity=null;
+    private LoginActivity loginActivity=null;
 
     @Before
     public void setUp() throws Exception {
-        mainActivity=activityActivityTestRule.getActivity();
+        loginActivity=activityActivityTestRule.getActivity();
     }
 
     @Test
     public  void testActivity(){
 
-        assertNotNull(mainActivity.findViewById(R.id.tv_email));
-        assertNotNull(mainActivity.findViewById(R.id.tv_password));
-        assertNotNull(mainActivity.findViewById(R.id.btn_login));
+        assertNotNull(loginActivity.findViewById(R.id.tv_email));
+        assertNotNull(loginActivity.findViewById(R.id.tv_password));
+        assertNotNull(loginActivity.findViewById(R.id.btn_login));
         ////////////////////////////////////////////////////////////////////////////////////////////
 
         onView(withId(R.id.tv_email)).perform(typeText("ghost")).toString();
@@ -53,6 +53,6 @@ public class LoginTest2 {
 
     @After
     public void tearDown() throws Exception {
-        mainActivity=null;
+        loginActivity=null;
     }
 }
